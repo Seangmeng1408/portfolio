@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container__sub">
+            <div class="container__sub__follow">
+                <h1>follow us</h1>
+                <ul class="socail-list">
+                    <li>
+                        <a href="https://www.facebook.com/dsm.love.v/" >
+                            <button class="btn fb">FACEBOOK</button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/dinseangmeng007/?hl=en" >
+                            <button class="btn instagram">INSTAGRAM</button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/din-seangmeng-692ab41ba/" >
+                            <button class="btn linkein">LINK IN</button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/SeangMengDin" >
+                            <button class="btn telegram">TELEGRAM</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container__sub__form">
+                <h1>contact form</h1>
+                <form class="form" method="post" action="{% url 'sendmail' %}" >
+                    {% csrf_token%}
+                    <div class="input">
+                        <div  class="input__container"><label for="Username_1">First Name</label>
+                            <input id="Username_1"  type="text" required="True" name="firstname"></div>
+                            <div class="input__container"><label for="address_1">Last Name</label>
+                                <input id="address_1" type="text" required="True" name="lastname"></div>
+                            </div>
+                            <div class="input">
+                                <div class="input__container"><label for="Username_2">Email</label>
+                                    <input id="Username_2" type="email" name="email"></div>
+                                    <div class="input__container"><label for="address_2">Subject</label>
+                                        <input id="address_2" type="text" required="True" name="subject"></div>
+                                    </div>
+                                    <div class="form__message" ><label for="message">Message</label>
+                                        <textarea name="message" id="message" required="True" name="message"></textarea></div>
+                                        <div class="form__button">
+                                            <input type="submit" value="submit">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <style>
+                            * {
+                                margin: 0;
+                                padding: 0;
+                                -webkit-box-sizing: border-box;
+                                box-sizing: border-box;
+                            }
+                            
+                            body {
+                                width: 100vw;
+                                height: 100%;
+                            }
+                            
+                            .container {
+                                width: 70%;
+                                margin: 0 auto;
+                                display: block;
+                            }
+                            
+                            .container__sub {
+                                width: 100%;
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -webkit-box-pack: justify;
+                                -ms-flex-pack: justify;
+                                justify-content: space-between;
+                            }
+                            
+                            .container__sub h1 {
+                                text-transform: uppercase;
+                                padding-left: .5rem;
+                            }
+                            
+                            .container__sub__follow {
+                                -webkit-box-flex: 0.4;
+                                -ms-flex: 0.4;
+                                flex: 0.4;
+                            }
+                            
+                            .container__sub__follow ul {
+                                width: 100%;
+                                border-top: 2px solid #8b8b8b;
+                                padding-left: 3rem;
+                            }
+                            
+                            .container__sub__form {
+                                -webkit-box-flex: 0.58;
+                                -ms-flex: 0.58;
+                                flex: 0.58;
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -webkit-box-orient: vertical;
+                                -webkit-box-direction: normal;
+                                -ms-flex-direction: column;
+                                flex-direction: column;
+                                width: 100%;
+                            }
+                            
+                            .container__sub__form .form {
+                                width: 100%;
+                                padding-bottom: 5rem;
+                                border-top: 2px solid #8b8b8b;
+                            }
+                            
+                            .container__sub__form .form .input {
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                width: 100%;
+                            }
+                            
+                            .container__sub__form .form .input__container {
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                width: 50%;
+                                -webkit-box-orient: vertical;
+                                -webkit-box-direction: normal;
+                                -ms-flex-direction: column;
+                                flex-direction: column;
+                            }
+                            
+                            .container__sub__form .form .input__container input[type="text"],input[type="email"] {
+                                max-width: 95%;
+                                padding: .6rem;
+                                outline: none;
+                                border: 2px solid rgba(138, 138, 138, 0.746);
+                                border-radius: 3px;
+                                font-size: 1rem;
+                            }
+                            
+                            .container__sub__form .form__message {
+                                width: 100%;
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -webkit-box-orient: vertical;
+                                -webkit-box-direction: normal;
+                                -ms-flex-direction: column;
+                                flex-direction: column;
+                            }
+                            
+                            .container__sub__form .form__message textarea {
+                                max-width: 97.5%;
+                                height: 30vh;
+                                outline: none;
+                                border: 2px solid rgba(138, 138, 138, 0.746);
+                                border-radius: 3px;
+                            }
+                            
+                            .container__sub__form .form__button {
+                                max-width: 97.5%;
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                -webkit-box-pack: end;
+                                -ms-flex-pack: end;
+                                justify-content: flex-end;
+                            }
+                            
+                            .container__sub__form .form__button input[type="submit"] {
+                                padding: .5rem .7rem;
+                                font-size: 1rem;
+                                border-radius: 5px;
+                                background-color: #00d9ff;
+                                border: none;
+                                outline: none;
+                                cursor: pointer;
+                                margin-top: 1rem;
+                            }
+                            .socail-list{
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                gap: 1rem;
+                            }
+                            .btn{
+                                width: 20em;
+                                padding: 1rem;
+                                border: none;
+                                outline: none;
+                                border-radius: 2px;
+                                cursor: pointer;
+                                
+                            }
+                            .btn +.btn{
+                                margin-left: 1rem;
+                            }
+                            
+                            .socail-list li{
+                                list-style: none;
+                            }
+                            .fb{
+                                background: rgb(66,103,178) !important;
+                            }
+                            .instagram{
+                                background: #f09433; 
+                                background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+                                background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                                background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+                            }
+                            .linkein{
+                                background: #0077b5;
+                            }
+                            .telegram{
+                                background: #229ED9;
+                            }
+                            /*# sourceMappingURL=home.css.map */
+                        </style>
+                    </body>
+                    </html>
