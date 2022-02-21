@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
-import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,8 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%6d7nml0&&5e(p5zu_quf6@+rsw&!i0b&04=g-vs8whhw4lz@p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['seangmeng-portfolio.herokuapp.com','127.0.0.1']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
     'ckeditor',
@@ -132,13 +133,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 STATIC_URL = '/static/'
 MEDIA_URL='/images/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
+    'static/',
 ]
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images')
 
 # Default primary key field type
@@ -153,4 +155,3 @@ EMAIL_PORT=587
 EMAIL_USER_TLS=True
 EMAIL_HOST_USER='bongmeng60@gmail.com'
 EMAIL_HOST_PASSWORD='toshxfrsruojfwzu'
-django_heroku.settings(locals())
