@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%6d7nml0&&5e(p5zu_quf6@+rsw&!i0b&04=g-vs8whhw4lz@p
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['seangmeng-portfolio.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
     'ckeditor',
@@ -133,14 +132,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
 MEDIA_URL='/images/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),
-    'static/',
 ]
-STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images')
 
 # Default primary key field type
