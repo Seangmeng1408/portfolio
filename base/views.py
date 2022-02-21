@@ -8,7 +8,7 @@ from .forms import AchievmentForm
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage,send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
 # Create your views here.
@@ -87,7 +87,6 @@ def SendEmail(request):
             'name':request.POST['firstname']+" "+request.POST['lastname'],
             'email':request.POST['email'],
             'message':request.POST['message'],
-            
         })
         email=EmailMessage(
             request.POST['subject'],
