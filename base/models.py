@@ -5,11 +5,10 @@ from turtle import back
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 class Achievment(models.Model):
     project=models.CharField(max_length=200)
-    describe=RichTextUploadingField(null=True,blank=True)
+    describe=RichTextField(null=True,blank=True)
     thumnail=models.ImageField(null=True,blank=True,upload_to="images",default="default-thumbnail.jpg")
     isComplete=models.BooleanField(default=False)
     Readable=models.BooleanField(default=True)
